@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  genie-client:
+    image: jaxzin/genie-client:0.0.1
+    build: .
+    container_name: genie-client
+    restart: unless-stopped
+    devices:
+      - /dev/snd
+    ports:
+      - '8000:8000'
