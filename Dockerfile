@@ -95,6 +95,17 @@ RUN \
 RUN echo "systemctl --user enable pulseaudio.socket && systemctl --user start pulseaudio.socket" >> /etc/pulse/default.pa
 RUN echo "load-module module-echo-cancel source_name=echosrc sink_name=echosink aec_method=speex" >> /etc/pulse/default.pa
 
+RUN apt-get install -y gstreamer1.0-alsa
+
+COPY pulse-client.conf /etc/pulse/client.conf
+COPY config.ini .
+COPY .asoundrc .
+USER root
+ENV XDG_RUNTIME_DIR=/run/user/1000
+ENV DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+RUN systemctl --user enable pulseaudio.service
+
+
 EXPOSE 8000
 
 ENTRYPOINT ["genie-client"]
