@@ -8,7 +8,7 @@ services:
     environment:
       XDG_RUNTIME_DIR: /run/user/1000
       DBUS_SESSION_BUS_ADDRESS: 'unix:path=/run/user/1000/bus'
-      ACCESS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MTE3YzllYWJkNTc5ZDQ2IiwiYXVkIjoib2F1dGgyIiwic2NvcGUiOlsicHJvZmlsZSIsInVzZXItcmVhZCIsInVzZXItcmVhZC1yZXN1bHRzIiwidXNlci1leGVjLWNvbW1hbmQiLCJ1c2VyLXN5bmMiLCJkZXZlbG9wZXItcmVhZCIsImRldmVsb3Blci11cGxvYWQiLCJkZXZlbG9wZXItYWRtaW4iXSwiaWF0IjoxNjQwNjY1NTY0LCJleHAiOjE2NDMyNTc1NjR9.J0KNFWidVXSmwsRalUqCXYGTTHKHTk61r5K0bOGzfiA
+      ACCESS_TOKEN: ${GENIE_ACCESS_TOKEN}
     devices:
       - /dev/snd
     volumes:
